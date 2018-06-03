@@ -24,12 +24,10 @@ public class BigView extends LinearLayout {
     public static int viewHeight;
     public BigView(final Context context) {
         super(context);
-        View view = LayoutInflater.from(context).inflate(R.layout.win_big, null);
-        //View view = findViewById(R.id.big);
-        viewWidth = view.getWidth();
-        viewHeight = view.getHeight();
-        Log.e("cyl",""+view.getWidth());
-        Log.e("cyl",""+view.getLayoutParams().width);
+        LayoutInflater.from(context).inflate(R.layout.win_big, this);
+        View view = findViewById(R.id.big);
+        viewWidth = view.getLayoutParams().width;
+        viewHeight = view.getLayoutParams().height;
         Button close = (Button) view.findViewById(R.id.close);
         Button back = (Button) view.findViewById(R.id.back);
         close.setOnClickListener(new OnClickListener() {
