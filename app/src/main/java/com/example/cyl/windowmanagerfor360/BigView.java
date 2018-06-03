@@ -2,6 +2,7 @@ package com.example.cyl.windowmanagerfor360;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -23,10 +24,12 @@ public class BigView extends LinearLayout {
     public static int viewHeight;
     public BigView(final Context context) {
         super(context);
-        LayoutInflater.from(context).inflate(R.layout.win_big, this);
-        View view = findViewById(R.id.big);
-        viewWidth = view.getLayoutParams().width;
-        viewHeight = view.getLayoutParams().height;
+        View view = LayoutInflater.from(context).inflate(R.layout.win_big, null);
+        //View view = findViewById(R.id.big);
+        viewWidth = view.getWidth();
+        viewHeight = view.getHeight();
+        Log.e("cyl",""+view.getWidth());
+        Log.e("cyl",""+view.getLayoutParams().width);
         Button close = (Button) view.findViewById(R.id.close);
         Button back = (Button) view.findViewById(R.id.back);
         close.setOnClickListener(new OnClickListener() {
